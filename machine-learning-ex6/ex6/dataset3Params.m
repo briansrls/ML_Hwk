@@ -23,12 +23,27 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
+% C_step = [0.01, 0.03, .1, .3, 1, 3, 10, 30];
+% sigma_step = [0.01, 0.03, .1, .3, 1, 3, 10, 30];
+% min_mean = 10000;
+% meeen = 0;
+% for i = 1:size(C_step')
+%     for j = 1:size(sigma_step')
+%         clear predictions
+%         clear model
+%         model = svmTrain(X, y, C_step(i), @(x1, x2)gaussianKernel(x1,x2,sigma_step(j)));
+%         predictions = svmPredict(model, Xval);
+%         meeen = mean(double(predictions ~= yval));
+%         if meeen < min_mean
+%             min_mean = meeen;
+%             C = C_step(i);
+%             sigma = sigma_step(j);
+%         end
+%     end
+% end
 
-
-
-
-
-
+C = 1;
+sigma = .1;
 % =========================================================================
 
 end
