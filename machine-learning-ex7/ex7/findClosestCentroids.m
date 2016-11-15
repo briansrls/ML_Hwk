@@ -21,7 +21,15 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
+min_array = [];
+for i = 1:size(X,1)
+    for j = 1:K
+        min_array = [min_array sqrt((sum((X(i,:)-centroids(j,:)).^2)))];
+    end
+    [M, I] = min(min_array);
+    idx(i) = min(I);
+    min_array = [];
+end
 
 
 
